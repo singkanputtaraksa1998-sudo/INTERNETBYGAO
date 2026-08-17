@@ -13,25 +13,25 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
   <style>
     .policy-content {
-      max-width: 800px;
+      max-width: 860px;
       margin: 120px auto 60px;
       padding: 0 20px;
     }
 
     .policy-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-xl);
       padding: 48px;
-      border: 1px solid var(--warm-200);
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
     }
 
     .policy-card h1 {
@@ -43,16 +43,16 @@
 
     .policy-date {
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--text-dim);
       margin-bottom: 32px;
       padding-bottom: 24px;
-      border-bottom: 1px solid var(--warm-200);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .policy-card h2 {
       font-size: 20px;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--neon-cyan);
       margin: 32px 0 12px;
     }
 
@@ -73,7 +73,7 @@
 
     .policy-card ul li {
       font-size: 15px;
-      color: var(--text-secondary);
+      color: var(--text-muted);
       line-height: 1.8;
       padding: 4px 0;
       list-style: disc;
@@ -84,20 +84,20 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 24px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
-      color: var(--gold-600);
+      color: var(--neon-cyan);
       transition: all var(--transition-fast);
     }
 
     .policy-back:hover {
-      color: var(--gold-400);
+      color: var(--neon-green);
       transform: translateX(-4px);
     }
 
     @media (max-width: 768px) {
       .policy-card {
-        padding: 28px;
+        padding: 28px 20px;
       }
 
       .policy-card h1 {
@@ -110,30 +110,43 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar scrolled" id="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⚡</span>
-        <div class="logo-text">
-          <span class="logo-main">INTERNET BY GAO</span>
-          <span class="logo-sub">ตัวแทนจำหน่ายอย่างเป็นทางการ</span>
-        </div>
-      </a>
-      <div class="nav-actions">
-        <a href="tel:0622014154" class="btn btn-call">
-          <span class="btn-icon">📞</span> 062-201-4154
+  <header>
+    <nav class="navbar scrolled" id="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon-wrap">⚡</div>
+          <div class="logo-text">
+            <span class="logo-main">INTERNET BY GAO</span>
+            <span class="logo-sub">ตัวแทนจำหน่ายอย่างเป็นทางการ</span>
+          </div>
         </a>
+        <div class="nav-actions">
+          <a href="tel:0622014154" 
+             class="btn btn-nav-call" 
+             data-conversion="phone" 
+             data-conversion-label="policy_nav_call">
+            <span>📞</span> 062-201-4154
+          </a>
+          <a href="https://line.me/ti/p/fxpsLGpZHG" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn btn-nav-line" 
+             data-conversion="line" 
+             data-conversion-label="policy_nav_line">
+            <span>💬</span> สมัครผ่าน LINE
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- POLICY CONTENT -->
-  <div class="policy-content">
-    <a href="index.html" class="policy-back">← กลับหน้าหลัก</a>
+  <main class="policy-content">
+    <a href="index.html" class="policy-back">← กลับสู่หน้าหลัก</a>
 
-    <div class="policy-card">
+    <article class="policy-card">
       <h1>นโยบายความเป็นส่วนตัว</h1>
-      <p class="policy-date">ปรับปรุงล่าสุด: 16 สิงหาคม 2569</p>
+      <p class="policy-date">ปรับปรุงล่าสุด: 17 สิงหาคม 2569</p>
 
       <h2>1. ข้อมูลทั่วไป</h2>
       <p>เว็บไซต์นี้ดำเนินการโดยตัวแทนจำหน่าย/ติดตั้งอย่างเป็นทางการของ AIS 3BB Fibre3 รหัสตัวแทนเลขที่ 79467 ("เรา") เราให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของผู้ใช้งาน ("ท่าน") ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</p>
@@ -170,7 +183,7 @@
       <ul>
         <li>การส่งต่อข้อมูลให้ผู้ให้บริการ (AIS 3BB Fibre3) เพื่อดำเนินการสมัครใช้บริการตามที่ท่านร้องขอ</li>
         <li>เมื่อกฎหมายกำหนดให้ต้องเปิดเผย</li>
-        <li>ผู้ให้บริการด้านเทคโนโลยีที่จำเป็นต่อการดำเนินงาน (เช่น Google Analytics)</li>
+        <li>ผู้ให้บริการด้านเทคโนโลยีที่จำเป็นต่อการดำเนินงาน (เช่น Google Analytics / Google Ads)</li>
       </ul>
 
       <h2>6. การรักษาความปลอดภัยของข้อมูล</h2>
@@ -195,16 +208,16 @@
       <h2>9. ข้อมูลการติดต่อ</h2>
       <p>หากท่านมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ สามารถติดต่อได้ที่:</p>
       <ul>
-        <li><strong>ชื่อ:</strong> ศฤงคาร พุทธรักษา</li>
-        <li><strong>โทรศัพท์:</strong> <a href="tel:0622014154" style="color: var(--gold-600);">062-201-4154</a></li>
-        <li><strong>อีเมล:</strong> <a href="mailto:singkhap@ais.co.th" style="color: var(--gold-600);">singkhap@ais.co.th</a></li>
-        <li><strong>LINE:</strong> <a href="https://line.me/ti/p/fxpsLGpZHG" target="_blank" rel="noopener" style="color: var(--gold-600);">คลิกที่นี่</a></li>
+        <li><strong>ชื่อผู้ประสานงาน:</strong> ศฤงคาร พุทธรักษา</li>
+        <li><strong>โทรศัพท์:</strong> <a href="tel:0622014154" style="color: var(--neon-cyan);">062-201-4154</a></li>
+        <li><strong>อีเมล:</strong> <a href="mailto:singkhap@ais.co.th" style="color: var(--neon-cyan);">singkhap@ais.co.th</a></li>
+        <li><strong>LINE:</strong> <a href="https://line.me/ti/p/fxpsLGpZHG" target="_blank" rel="noopener" style="color: var(--neon-cyan);">คลิกที่นี่</a></li>
       </ul>
 
       <h2>10. การเปลี่ยนแปลงนโยบาย</h2>
       <p>เราขอสงวนสิทธิ์ในการแก้ไขหรือเปลี่ยนแปลงนโยบายความเป็นส่วนตัวนี้ได้ตลอดเวลา โดยจะแจ้งให้ทราบผ่านทางเว็บไซต์นี้ ขอแนะนำให้ท่านตรวจสอบนโยบายนี้เป็นประจำ</p>
-    </div>
-  </div>
+    </article>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -221,6 +234,7 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 
 </html>
