@@ -12,20 +12,34 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dataLayer = window.dataLayer || [];
 
   /**
-   * Track Conversion Events
-   * @param {string} type - 'line' or 'phone'
+   * Normalize and Track Conversion Events for GTM & Google Ads
+   * Supported types: 'line_click', 'phone_click', 'signup_click' (or 'line', 'phone', 'signup')
+   * @param {string} type - Conversion event type
    * @param {HTMLElement} element - Clicked element
    */
   const trackConversion = (type, element) => {
-    const eventName = type === 'line' ? 'line_click' : 'phone_click';
-    const label = element.getAttribute('data-conversion-label') || element.textContent.trim() || type;
+    let eventName = 'conversion_click';
+    if (type === 'line' || type === 'line_click') {
+      eventName = 'line_click';
+    } else if (type === 'phone' || type === 'phone_click') {
+      eventName = 'phone_click';
+    } else if (type === 'signup' || type === 'signup_click') {
+      eventName = 'signup_click';
+    } else if (type) {
+      eventName = type;
+    }
+
+    const label = element.getAttribute('data-conversion-label') || element.textContent.trim() || eventName;
+    const targetUrl = element.getAttribute('href') || '';
     
     // 1. Google Tag Manager / dataLayer push
     window.dataLayer.push({
       event: eventName,
-      conversion_type: type,
+      conversion_type: eventName,
       button_label: label,
+      target_url: targetUrl,
       page_location: window.location.href,
+      page_path: window.location.pathname,
       timestamp: new Date().toISOString()
     });
 
@@ -39,17 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // --------------------------------------------------------------------
       // [GOOGLE ADS CONVERSION TAG PLACEHOLDER]
-      // To attach your Google Ads conversion event, configure your conversion ID / label:
+      // To attach specific Google Ads conversion action IDs/labels:
       // Example:
-      // if (type === 'line') {
-      //   window.gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/LINE_CONVERSION_LABEL'});
-      // } else if (type === 'phone') {
-      //   window.gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/PHONE_CONVERSION_LABEL'});
+      // if (eventName === 'line_click') {
+      //   window.gtag('event', 'conversion', {'send_to': 'AW-18393127491/LINE_CONVERSION_LABEL'});
+      // } else if (eventName === 'phone_click') {
+      //   window.gtag('event', 'conversion', {'send_to': 'AW-18393127491/PHONE_CONVERSION_LABEL'});
+      // } else if (eventName === 'signup_click') {
+      //   window.gtag('event', 'conversion', {'send_to': 'AW-18393127491/SIGNUP_CONVERSION_LABEL'});
       // }
       // --------------------------------------------------------------------
     }
 
-    console.log(`[Conversion Tracked] Type: ${type}, Label: ${label}`);
+    console.log(`[Conversion Tracked] Event: ${eventName}, Label: ${label}`);
   };
 
   // Attach event listeners to all conversion elements
